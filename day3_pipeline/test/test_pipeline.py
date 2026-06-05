@@ -11,3 +11,13 @@ def test_load_data():
     assert hasattr(data, "target")
     assert len(data.data) > 0, "Data should not be empty"
     assert len(data.target) > 0, "Target should not be empty"
+
+
+def test_pipeline():
+    data = [1, 2, 3]
+
+    processed = preprocess_data(data)
+    model = train_model(processed)
+    score = evaluate_model(model, processed)
+
+    assert score is not None
